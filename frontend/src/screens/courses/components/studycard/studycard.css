@@ -1,0 +1,25 @@
+.your-study-cont {
+  border: 1px solid #dadada;
+  width: 95%;
+  border-radius: 15px;
+  justify-content: space-between !important;
+  padding: 20px;
+  margin-bottom: 15px;
+  align-items: center !important;
+  height: 120px;
+}
+
+.your-study-cont-right {
+  width: 90%;
+  justify-content: flex-start !important;
+  align-items: flex-start !important;
+  gap: 15px !important;
+}
+
+.your-study-cont-under {
+  justify-content: space-between !important;
+}
+
+.active-topic {
+  background-color: rgb(233, 233, 233);
+}

@@ -1,0 +1,73 @@
+.top-bar-container {
+  border-bottom: 1px solid #d2d1dc;
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 25px 0px 25px;
+}
+
+.top-bar-profile-pic {
+  width: 40px;
+  border-radius: 40px;
+}
+
+.top-bar-status {
+  padding: 0px 5px 0px 5px;
+  background: var(
+    --light-background-blue,
+    linear-gradient(0deg, rgba(0, 133, 255, 0.1) 0%, rgba(0, 133, 255, 0.1) 100%),
+    #fff
+  );
+  margin: 0;
+  border-radius: 5px;
+  color: #0085ff;
+}
+
+.top-bar-btn {
+  background: #34204c !important;
+  width: 150px;
+}
+
+.header-dropdown {
+  width: 150px;
+  height: 100px;
+  position: absolute;
+  z-index: 3000;
+  margin-top: 140px;
+  margin-left: -130px;
+  transition: all 0.5s;
+  animation: show 0.5s ease-in-out;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 5px;
+  align-items: center;
+  padding-top: 5px;
+}
+
+.drop-down-button {
+  width: 100%;
+  background-color: rgb(249, 252, 255);
+  padding: 8px;
+  box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgb(219, 219, 219);
+  text-align: center;
+  font-size: small;
+  font-family: "Rosario", sans-serif;
+  margin: 0px;
+  cursor: pointer;
+  color: black;
+}
+
+.hide {
+  display: none;
+}
+
+@media screen and (max-width: 500px) {
+  .media-engine-intro {
+    display: none;
+  }
+}

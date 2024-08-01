@@ -1,0 +1,53 @@
+.input-field {
+    width: 100%;
+    
+}
+
+.input-field > input {
+    border: none;
+    outline: none;
+    display: flex;
+    height: 3.5rem;
+    padding: 1rem 0.75rem 1rem 1rem;
+    align-items: center;
+    gap: 0.5rem;
+    align-self: stretch;
+    border-radius: 0.25rem;
+    border: 1px solid var(--others-strokes, rgba(58, 53, 65, 0.23));
+    background: var(--others-white, #FFF);
+
+    width: inherit;
+    color: var(--text-colours-text-10, #47586E);
+    font-family: "Sora", sans-serif;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 1.3125rem; /* 150% */
+    letter-spacing: 0.01563rem;
+}
+
+.input-field > textarea {
+    border: none;
+    outline: none;
+    display: flex;
+    height: 3.5rem;
+    padding: 1rem 0.75rem 1rem 1rem;
+    align-items: center;
+    gap: 0.5rem;
+    align-self: stretch;
+    border-radius: 0.25rem;
+    border: 1px solid var(--others-strokes, rgba(58, 53, 65, 0.23));
+    background: var(--others-white, #FFF);
+
+    width: inherit;
+    color: var(--text-colours-text-10, #47586E);
+    font-family: "Sora", sans-serif;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 1.3125rem; /* 150% */
+    letter-spacing: 0.01563rem;
+
+    resize: none;
+    min-height: 8rem;
+}

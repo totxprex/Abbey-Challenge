@@ -1,0 +1,14 @@
+:root {
+    --primaryColor: #34204C;
+    --primary-100: #34204C;
+    --primary-50: #7975B6;
+    --success-30: #52AC10;
+    --others-strokes: rgba(58, 53, 65, 0.23);
+    --error-100: #CC0000;
+    --error-30: #FF4C51;
+    --error-10: #F7D4D4;
+    --warning-30: #FFB400;
+    --warning-10: #FFF4D9;
+    --success-10: #E6F7D9;
+    --success-30: #52AC10;
+}

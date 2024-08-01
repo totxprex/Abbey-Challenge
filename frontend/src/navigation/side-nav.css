@@ -1,0 +1,92 @@
+.side-nav-container {
+  width: 20%;
+  height: 100vh;
+  background: #34204d;
+
+  overflow-y: auto;
+}
+
+.inner-conatiner {
+  padding-top: 30px;
+  background: linear-gradient(135deg, rgba(248, 239, 239, 0.1), rgba(255, 255, 255, 0));
+  backdrop-filter: blur(120px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  height: 100vh;
+}
+
+.etap-logo-side-nav {
+  width: 70px;
+}
+
+.side-nav-intro {
+  gap: 10px;
+  justify-content: center;
+}
+
+.nav-items-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 15px;
+  padding: 40px 20px 0px 20px;
+}
+
+.copyright-container {
+  margin-top: 150px;
+}
+
+.each-nav {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 20px;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 10px;
+  padding-left: 20px;
+  cursor: pointer;
+  transition: all 0.5s;
+  border-radius: 10px;
+  background: none;
+  outline: none;
+  border-style: none;
+}
+
+.each-nav:hover {
+  opacity: 0.8;
+}
+
+.each-nav-active {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+@media screen and (max-width: 500px) {
+  .etap-logo-side-nav {
+    width: 20px;
+  }
+
+  .side-nav-container {
+    width: 10%;
+  }
+
+  .media-nav-text {
+    display: none;
+  }
+
+  .each-nav {
+    padding-left: 5px;
+    padding-right: 5px;
+    justify-content: center;
+    border-radius: 0px;
+  }
+
+  .nav-items-container {
+    padding: 20px 0px 0px 0px;
+  }
+
+  .media-nav {
+    display: none;
+  }
+}

@@ -1,0 +1,17 @@
+.anylitics-courses-cont {
+  width: 100%;
+  overflow: auto;
+  justify-content: center;
+  gap: 30px !important;
+  padding-bottom: 20px;
+}
+
+.e-table-container {
+  width: 100%;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.etap-stat-container{
+  
+}

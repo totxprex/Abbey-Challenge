@@ -1,0 +1,66 @@
+
+
+.tab-stats-container {
+    align-items: flex-start;
+    background-color: #ffffff;
+    border: 1px solid;
+    border-color: #dadada;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    justify-content: center;
+    overflow: hidden;
+    padding: 22.5px 16px;
+    position: relative;
+  }
+  
+  .tab-stats-container .tab-stats-frame {
+    align-items: center;
+    display: inline-flex;
+    flex: 0 0 auto;
+    gap: 16px;
+    position: relative;
+  }
+  
+  .tab-stats-container .tab-stats-icon {
+    flex: 0 0 auto;
+    position: relative;
+    width: 3rem;
+  }
+  
+  .tab-stats-container .tab-stats-contents {
+    align-items: flex-start;
+    display: inline-flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    gap: 8px;
+    position: relative;
+  }
+  
+  .tab-stats-container .tab-stats-title {
+    color: #47586E;
+    font-family: "Sora", sans-serif;
+    font-size: 0.875rem;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 1.275rem;
+    margin-top: -1px;
+    position: relative;
+    width: 137px;
+
+  }
+  
+  .tab-stats-container .tab-stats-count {
+    font-size: 1.5rem;
+    letter-spacing: 0;
+    line-height: normal;
+    position: relative;
+    width: 25px;
+
+    color: #474F59;
+    font-family: "Sora", sans-serif;
+    font-style: normal;
+    font-weight: 200;
+  }
+  

@@ -1,0 +1,12 @@
+.MuiToolbar-root p {
+  margin: 0 !important;
+}
+
+.MuiTableContainer-root {
+  min-height: fit-content !important;
+  max-height: fit-content !important;
+}
+
+.MuiTableCell-stickyHeader {
+  background-color: rgba(113, 82, 243, 0.05) !important;
+}
