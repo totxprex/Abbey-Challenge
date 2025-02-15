@@ -23,7 +23,7 @@ As advised, the solution has been dockerized. The application should be run by f
 
 Note, alternatively, the application can also be run separately by opening the backend folder and running npm start in the root directory and then the frontend folder and running the same npm start.
 
-If you need to access the database, it can be accessed via the MongoDB Compass app using the URL `mongodb+srv://totxprex:VK8cLLJtZ9H44grR@etap-learning.qxmj1r0.mongodb.net/`
+If you need to access the database, it can be accessed via the MongoDB Compass app using the URL in the config.env file.
 
 # Authentication
 
