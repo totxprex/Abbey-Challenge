@@ -1,0 +1,1469 @@
+{
+	"info": {
+		"_postman_id": "89c46031-27e5-48fb-bb2f-9e90b285f496",
+		"name": "Abbey Learning API",
+		"description": "By Tolulope Mumuney\n\nA documentation of the API backing Abbey Learning, describing all its routes and endpoints.\n\nUser roles:  \n\"student\" | \"admin\" | \"teacher\" | \"other\"\n\nEndpoints require the basic API Key and uses both basic auth headers and a passport token architecture.\n\nSome routes for creation require \"pass\" in the header: \\[\"auth/signup\", \"auth/login\"\\]",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21822607"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login A User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "pass",
+								"value": "{{passKey}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"totxprex@gmail.com\",\r\n    \"password\": \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/auth/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						},
+						"description": "All Roles.\n\nThe initiate login endpoint will need both the user email and password in the requests body.\n\nThis endpoint will verify a user's password by comparing it with the hashed version in the db. If successful, it'll generate a token passport and send back as cookie also. Note: This token will expire in 90d for now."
+					},
+					"response": [
+						{
+							"name": "Login A User",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "pass",
+										"value": "",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"tolulope@gmail.com\",\r\n    \"password\": \"1234\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "/auth/login",
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Resource-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Origin-Agent-Cluster",
+									"value": "?1"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRvbHVsb3BlQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsInN0dWRlbnRfbnVtYmVyIjoiVE01MjQyIiwiaWF0IjoxNzIyMzUwNTY2LCJleHAiOjE3MzAxMjY1NjZ9.hXMMeEjEBeT73vAGYeDLbqqzH4yHsOmmHmkDpY7yc4k; Path=/; Expires=Sat, 28 Sep 2024 14:42:46 GMT; HttpOnly; SameSite=None"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "338"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"152-M9hAw+BfJLAwqfxlxvir6o0GrP4\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 30 Jul 2024 14:42:46 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"User Logged In\",\n    \"data\": {\n        \"email\": \"tolulope@gmail.com\",\n        \"role\": \"admin\",\n        \"student_number\": \"TM5242\",\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRvbHVsb3BlQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsInN0dWRlbnRfbnVtYmVyIjoiVE01MjQyIiwiaWF0IjoxNzIyMzUwNTY2LCJleHAiOjE3MzAxMjY1NjZ9.hXMMeEjEBeT73vAGYeDLbqqzH4yHsOmmHmkDpY7yc4k\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Signup a User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							},
+							{
+								"key": "pass",
+								"value": "{{passKey}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"first_name\": \"John\",\r\n    \"last_name\": \"Hopkings\",\r\n    \"email\": \"johnhopkings@endtest-mail.io\",\r\n    \"password\": \"1234\",\r\n    \"role\": \"student\",\r\n    \"mobile\": \"08037184297\",\r\n    \"address\": {\r\n        \"addressString\": \"5a Mapple Close, Abuja\"\r\n    },\r\n    \"about\": \"I am Student!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/auth/signup",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"auth",
+								"signup"
+							]
+						},
+						"description": "All fields in sample req.body required."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Get User",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/users/get?email=totxprex@gmail.com",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"get"
+							],
+							"query": [
+								{
+									"key": "role",
+									"value": "student",
+									"disabled": true
+								},
+								{
+									"key": "student_number",
+									"value": "TM1377",
+									"disabled": true
+								},
+								{
+									"key": "email",
+									"value": "totxprex@gmail.com"
+								}
+							]
+						},
+						"description": "Can get a user, regardless of role, user userID param: url/key/:userID\n\nCan get a user by email query: url/key?email=email\n\nCan get a user by role query: url/key?role=role (\"student\", \"admin\", \"teacher\", \"other\")\n\nCan get a user by role query: url/key?student_number=student_number\n\nNote: if no query or param added, server will return all users in the db"
+					},
+					"response": [
+						{
+							"name": "Get User",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "/users/get?email=totxprex@gmail.com",
+									"path": [
+										"users",
+										"get"
+									],
+									"query": [
+										{
+											"key": "role",
+											"value": "patient",
+											"disabled": true
+										},
+										{
+											"key": "student_number",
+											"value": "TM1377",
+											"disabled": true
+										},
+										{
+											"key": "email",
+											"value": "totxprex@gmail.com"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Resource-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Origin-Agent-Cluster",
+									"value": "?1"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "466"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1d2-pqmCX/0zlOLO32O0SE+SmCMuULc\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 29 Jul 2024 09:53:32 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"Found User by email\",\n    \"data\": {\n        \"address\": {\n            \"geoLocation\": {\n                \"type\": \"point\",\n                \"coordinates\": []\n            },\n            \"addressString\": \"5a Mapple Close, Abuja\"\n        },\n        \"_id\": \"66a7635acf5b0b6512b63408\",\n        \"first_name\": \"Tolulope\",\n        \"last_name\": \"Mumuney\",\n        \"role\": \"admin\",\n        \"email\": \"totxprex@gmail.com\",\n        \"student_number\": \"TM1377\",\n        \"profile_picture\": \"\",\n        \"about\": \"\",\n        \"mobile\": \"08037184297\",\n        \"courses\": [],\n        \"classes\": [],\n        \"admissions\": [],\n        \"createdAt\": \"2024-07-29T09:39:29.519Z\",\n        \"is_active\": true,\n        \"payments\": [],\n        \"__v\": 0\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update User Profile Picture",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "photo",
+									"type": "file",
+									"src": "/C:/Users/totxprex/Pictures/homepage - Copy.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/users/profile/pic/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"profile",
+								"pic",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "66a7635acf5b0b6512b63408"
+								}
+							]
+						},
+						"description": "Update profile picture of any user type. Images should come in either jpeg, png, or jpg and will be saved in an AWS s3 bucket. Filename will be auto given to the file based on useer's name. \n\nIn the multipart/form-data, the file must be in the \"photo\" field please."
+					},
+					"response": []
+				},
+				{
+					"name": "Update User's Data",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"first_name\": \"Tolulope\",\r\n    \"last_name\": \"Mumuney\",\r\n    \"mobile\": \"08037184297\",\r\n    \"about\": \"About me\",\r\n    \"address\": {\r\n        \"addressString\": \"Mapplewood Lagos\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/users/profile/edit/:id",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"profile",
+								"edit",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "66a7635acf5b0b6512b63408"
+								}
+							]
+						},
+						"description": "Update user's basic profile details. Can update first_name, last_name, address, mobile, and about.\n\nIf any field in the address is to be edited, the entire address object must be sent back, including addressString field."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Courses/Subjects",
+			"item": [
+				{
+					"name": "Create A Course",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"learn Javascript\",\r\n    \"category\": \"Technology\",\r\n    \"teachers\": [\r\n        \"66a765b8fab49eaa361664b2\"\r\n    ],\r\n    \"resources\": [\r\n        {\r\n            \"title\": \"Javascript Introduction\",\r\n            \"content\": \"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).\",\r\n            \"external_links\": [\r\n                \"https://www.lipsum.com/\"\r\n            ],\r\n            \"videos\": [\r\n                \"https://youtu.be/FQdaUv95mR8?si=VWxt8UxLsNUZXKgr\"\r\n            ]\r\n        },\r\n        {\r\n            \"title\": \"Arrays and Objexts\",\r\n            \"content\": \"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).\",\r\n            \"external_links\": [\r\n                \"https://www.lipsum.com/\"\r\n            ],\r\n            \"videos\": [\r\n                \"https://youtu.be/FQdaUv95mR8?si=VWxt8UxLsNUZXKgr\",\r\n                \"https://youtu.be/kUMe1FH4CHE?si=XrSFM5B04HdwJZbj\"\r\n            ]\r\n        }\r\n    ],\r\n    \"description\": \"Learn all you need to know about JS/TS. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/courses/create",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"courses",
+								"create"
+							]
+						},
+						"description": "A course is a combination/array of resources. In other words, an array of topics. The course description, name, category, and at least one element of the teacher's array is required. The tecahers in the teachers array must have role teacher mapped in the db.  \n  \nEach resource can have videos, text content, external links, etc. See sample req.body for allowed fileds."
+					},
+					"response": []
+				},
+				{
+					"name": "Register For A Course",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/courses/register/:studentID/:courseID",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"courses",
+								"register",
+								":studentID",
+								":courseID"
+							],
+							"variable": [
+								{
+									"key": "studentID",
+									"value": "66a882ccc3301ec3a8f926ab"
+								},
+								{
+									"key": "courseID",
+									"value": "66a85b04dc468687775cfe8c"
+								}
+							]
+						},
+						"description": "Only users with role student can register for a course. ID of student will be mapped to the course and a ref also created in the students array.\n\nA course tracker will be created for the user upon course regsitration for tracking course progress as need. This course tracker will be in the student's data."
+					},
+					"response": []
+				},
+				{
+					"name": "Progress In A Course",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"studentID\": \"66a763b5cf5b0b6512b6340c\",\r\n    \"courseID\": \"66a865fb304df54053079970\",\r\n    \"topicIn\": \"66a865fb304df54053079972\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/courses/progress",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"courses",
+								"progress"
+							]
+						},
+						"description": "This majorly interacts with the course_tracker under a user's data. The course_tracker marks progress of a specific course in your courses box, hence, any courseID and topicIn added to the req.body needs to tally. Upon progress report, the current_topic and topics_resolved fields in the course_tracker will be updated accordingly. The progress of the course, calculated in percentange will also be recorded after hitting this endpoint."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Student Course Completion Ranking",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/courses/ranking/:courseId",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"courses",
+								"ranking",
+								":courseId"
+							],
+							"variable": [
+								{
+									"key": "courseId",
+									"value": "66a865fb304df54053079970"
+								}
+							]
+						},
+						"description": "Since all user's have a course tracker array, this endpoint gets all students under a course and then calculates/sorts them by the completion rate for each course.\n\nEach of the user trackers added also return a progress rating in percent for the user under the progress field."
+					},
+					"response": [
+						{
+							"name": "Get Student Course Completion Ranking",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/courses/ranking/:courseId",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"courses",
+										"ranking",
+										":courseId"
+									],
+									"variable": [
+										{
+											"key": "courseId",
+											"value": "66a865fb304df54053079970"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Resource-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Origin-Agent-Cluster",
+									"value": "?1"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2924"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"b6c-GadhBJz9H234LypbOuI1WOeFryc\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 31 Jul 2024 12:24:03 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"See Ranking\",\n    \"data\": [\n        {\n            \"course\": \"66a865fb304df54053079970\",\n            \"progress\": 100,\n            \"current_topic\": \"66a865fb304df54053079972\",\n            \"topics_resolved\": [\n                \"66a865fb304df54053079971\",\n                \"66a865fb304df54053079972\"\n            ],\n            \"_id\": \"66a873f05a11dd58b58ef2e6\",\n            \"userData\": {\n                \"address\": {\n                    \"geoLocation\": {\n                        \"type\": \"point\",\n                        \"coordinates\": []\n                    },\n                    \"addressString\": \"5a Mapple Close, Abuja\"\n                },\n                \"_id\": \"66a763b5cf5b0b6512b6340c\",\n                \"first_name\": \"Kunle\",\n                \"last_name\": \"Deso\",\n                \"role\": \"student\",\n                \"email\": \"kxprex@gmail.com\",\n                \"student_number\": \"KD9165\",\n                \"profile_picture\": \"\",\n                \"about\": \"\",\n                \"mobile\": \"080752678198\",\n                \"courses\": [\n                    \"66a865fb304df54053079970\",\n                    \"66a86598304df5405307996b\"\n                ],\n                \"classes\": [\n                    \"66a8c4a4635bb7e8b85f0870\"\n                ],\n                \"admissions\": [],\n                \"createdAt\": \"2024-07-29T09:39:29.519Z\",\n                \"is_active\": true,\n                \"payments\": [],\n                \"__v\": 0,\n                \"courses_tracker\": [\n                    {\n                        \"course\": \"66a865fb304df54053079970\",\n                        \"progress\": 100,\n                        \"current_topic\": \"66a865fb304df54053079972\",\n                        \"topics_resolved\": [\n                            \"66a865fb304df54053079971\",\n                            \"66a865fb304df54053079972\"\n                        ],\n                        \"_id\": \"66a873f05a11dd58b58ef2e6\"\n                    },\n                    {\n                        \"course\": \"66a86598304df5405307996b\",\n                        \"progress\": 0,\n                        \"current_topic\": \"\",\n                        \"topics_resolved\": [],\n                        \"_id\": \"66a87621342e14c9f41665b4\"\n                    }\n                ]\n            }\n        },\n        {\n            \"course\": \"66a865fb304df54053079970\",\n            \"progress\": 0,\n            \"current_topic\": \"\",\n            \"topics_resolved\": [],\n            \"_id\": \"66a88330c3301ec3a8f926bd\",\n            \"userData\": {\n                \"address\": {\n                    \"geoLocation\": {\n                        \"type\": \"point\",\n                        \"coordinates\": []\n                    },\n                    \"addressString\": \"5a Mapple Close, Abuja\"\n                },\n                \"_id\": \"66a882bdc3301ec3a8f926a7\",\n                \"first_name\": \"Mary\",\n                \"last_name\": \"Mandaling\",\n                \"role\": \"student\",\n                \"email\": \"mary@endtest-mail.io\",\n                \"student_number\": \"MM5983\",\n                \"profile_picture\": \"\",\n                \"about\": \"I am Student!\",\n                \"mobile\": \"08037184297\",\n                \"courses\": [\n                    \"66a865fb304df54053079970\"\n                ],\n                \"classes\": [],\n                \"admissions\": [],\n                \"createdAt\": \"2024-07-30T06:05:14.009Z\",\n                \"is_active\": true,\n                \"payments\": [],\n                \"courses_tracker\": [\n                    {\n                        \"course\": \"66a865fb304df54053079970\",\n                        \"progress\": 0,\n                        \"current_topic\": \"\",\n                        \"topics_resolved\": [],\n                        \"_id\": \"66a88330c3301ec3a8f926bd\"\n                    }\n                ],\n                \"__v\": 0\n            }\n        },\n        {\n            \"course\": \"66a865fb304df54053079970\",\n            \"progress\": 0,\n            \"current_topic\": \"\",\n            \"topics_resolved\": [],\n            \"_id\": \"66a88334c3301ec3a8f926c8\",\n            \"userData\": {\n                \"address\": {\n                    \"geoLocation\": {\n                        \"type\": \"point\",\n                        \"coordinates\": []\n                    },\n                    \"addressString\": \"5a Mapple Close, Abuja\"\n                },\n                \"_id\": \"66a882ccc3301ec3a8f926ab\",\n                \"first_name\": \"John\",\n                \"last_name\": \"Hopkings\",\n                \"role\": \"student\",\n                \"email\": \"johnhopkings@endtest-mail.io\",\n                \"student_number\": \"JH2695\",\n                \"profile_picture\": \"\",\n                \"about\": \"I am Student!\",\n                \"mobile\": \"08037184297\",\n                \"courses\": [\n                    \"66a86598304df5405307996b\",\n                    \"66a865fb304df54053079970\",\n                    \"66a85b04dc468687775cfe8c\"\n                ],\n                \"classes\": [\n                    \"66a8c4a4635bb7e8b85f0870\"\n                ],\n                \"admissions\": [],\n                \"createdAt\": \"2024-07-30T06:05:14.009Z\",\n                \"is_active\": true,\n                \"payments\": [],\n                \"courses_tracker\": [\n                    {\n                        \"course\": \"66a86598304df5405307996b\",\n                        \"progress\": 0,\n                        \"current_topic\": \"\",\n                        \"topics_resolved\": [],\n                        \"_id\": \"66a882e5c3301ec3a8f926b3\"\n                    },\n                    {\n                        \"course\": \"66a865fb304df54053079970\",\n                        \"progress\": 0,\n                        \"current_topic\": \"\",\n                        \"topics_resolved\": [],\n                        \"_id\": \"66a88334c3301ec3a8f926c8\"\n                    },\n                    {\n                        \"course\": \"66a85b04dc468687775cfe8c\",\n                        \"progress\": 0,\n                        \"current_topic\": \"\",\n                        \"topics_resolved\": [],\n                        \"_id\": \"66a883fe8cc7031b3cb767be\"\n                    }\n                ],\n                \"__v\": 0\n            }\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Courses",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/courses/get",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"courses",
+								"get"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "learn,phyton",
+									"disabled": true
+								},
+								{
+									"key": "category",
+									"value": "technology",
+									"disabled": true
+								},
+								{
+									"key": "id",
+									"value": "66a85b04dc468687775cfe8c",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Can get a course by category: url?category=category\n\nCan get a course by name: url?name=name (NOTE: split spaces in course name by comma) (Not case sensitive)\n\nCan get a user by course id auto generated by db: url?id=id\n\nNote: if no query or param added, server will return all users in the db"
+					},
+					"response": [
+						{
+							"name": "Get User Copy",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/courses/get",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"courses",
+										"get"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "learn,phyton",
+											"disabled": true
+										},
+										{
+											"key": "category",
+											"value": "technology",
+											"disabled": true
+										},
+										{
+											"key": "id",
+											"value": "66a85b04dc468687775cfe8c",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Resource-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Origin-Agent-Cluster",
+									"value": "?1"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1954"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"7a2-tlpMCnjLn5ZHxjMyJQUKtxpSCQ0\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 30 Jul 2024 03:39:13 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"Found course by ID\",\n    \"data\": {\n        \"_id\": \"66a85b04dc468687775cfe8c\",\n        \"name\": \"Learn JavaScript\",\n        \"category\": \"Technology\",\n        \"resources\": [\n            {\n                \"title\": \"Chapter 1\",\n                \"content\": \"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).\",\n                \"external_links\": [\n                    \"https://www.lipsum.com/\"\n                ],\n                \"videos\": [],\n                \"createdAt\": \"2024-07-30T03:16:20.446Z\",\n                \"_id\": \"66a85b04dc468687775cfe8d\"\n            }\n        ],\n        \"teachers\": [\n            {\n                \"address\": {\n                    \"geoLocation\": {\n                        \"type\": \"point\",\n                        \"coordinates\": []\n                    },\n                    \"addressString\": \"5a Mapple Close, Abuja\"\n                },\n                \"_id\": \"66a765b8fab49eaa361664b2\",\n                \"first_name\": \"Bolanle\",\n                \"last_name\": \"Olaike\",\n                \"role\": \"teacher\",\n                \"email\": \"bolanleolaike@endtest-mail.io\",\n                \"student_number\": \"BO6291\",\n                \"mobile\": \"080752678198\"\n            }\n        ],\n        \"students\": [],\n        \"description\": \"Learn all you need to know about JS. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).\",\n        \"createdAt\": \"2024-07-30T03:16:20.446Z\",\n        \"banner\": \"\",\n        \"__v\": 0\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Classes",
+			"item": [
+				{
+					"name": "Create A Classroom",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"courses\": [\r\n        \"66a85b04dc468687775cfe8c\",\r\n        \"66a865fb304df54053079970\"\r\n    ],\r\n    \"teachers\": [\r\n        \"66a765b8fab49eaa361664b2\"\r\n    ],\r\n    \"title\": \"Coding Bootcamp\",\r\n    \"description\": \"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).\",\r\n    \"meetings\": [\r\n        {\r\n            \"link\": \"https://meet.google.com/nit-xaoj-tma\",\r\n            \"instructions\": \"\",\r\n            \"duration\": {\r\n                \"value\": \"240\",\r\n                \"unit\": \"hour\"\r\n            },\r\n            \"platform\": \"Google Meet\",\r\n            \"date\": \"1722335353195\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/classes/create",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"classes",
+								"create"
+							]
+						},
+						"description": "A classroom was created to be a combination of courses for students that don't register directly for individual courses.\n\nThe teachers and courses array in the req.body should be array of IDs also.\n\nMeetings being set for classes should have platform, duration, instructions, link, courses, and date milliseconds.\n\nPlease note, the courses added to a class must exist in the courses collection. This also applies to the ID strings in the teachers array."
+					},
+					"response": [
+						{
+							"name": "Create A Course Copy",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"courses\": [\r\n        \"66a85b04dc468687775cfe8c\",\r\n        \"66a865fb304df54053079970\"\r\n    ],\r\n    \"teachers\": [\r\n        \"66a765b8fab49eaa361664b2\"\r\n    ],\r\n    \"title\": \"Coding Bootcamp\",\r\n    \"description\": \"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).\",\r\n    \"meetings\": [\r\n        {\r\n            \"link\": \"https://meet.google.com/nit-xaoj-tma\",\r\n            \"instructions\": \"\",\r\n            \"duration\": {\r\n                \"value\": \"240\",\r\n                \"unit\": \"hour\"\r\n            },\r\n            \"platform\": \"Google Meet\",\r\n            \"date\": \"1722335353195\"\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/classes/create",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"classes",
+										"create"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Resource-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Origin-Agent-Cluster",
+									"value": "?1"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1113"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"459-Oq/eLtC/q40tsvKjIniSOZebMuE\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 30 Jul 2024 10:47:00 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"Class Created!\",\n    \"data\": {\n        \"students\": [],\n        \"teachers\": [\n            \"66a765b8fab49eaa361664b2\"\n        ],\n        \"meetings\": [\n            {\n                \"date\": \"2024-07-30T10:29:13.195Z\",\n                \"link\": \"https://meet.google.com/nit-xaoj-tma\",\n                \"instructions\": \"\",\n                \"duration\": {\n                    \"value\": 240,\n                    \"unit\": \"hour\"\n                },\n                \"platform\": \"Google Meet\",\n                \"_id\": \"66a8c4a4635bb7e8b85f0871\"\n            }\n        ],\n        \"createdAt\": \"2024-07-30T10:46:59.579Z\",\n        \"description\": \"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).\",\n        \"courses\": [\n            \"66a85b04dc468687775cfe8c\",\n            \"66a865fb304df54053079970\"\n        ],\n        \"title\": \"Coding Bootcamp\",\n        \"_id\": \"66a8c4a4635bb7e8b85f0870\",\n        \"chats\": [],\n        \"__v\": 0\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Register For A Class",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"courses\": [\r\n        \"66a85b04dc468687775cfe8c\",\r\n        \"66a865fb304df54053079970\"\r\n    ],\r\n    \"teachers\": [\r\n        \"66a765b8fab49eaa361664b2\"\r\n    ],\r\n    \"title\": \"Coding Bootcamp\",\r\n    \"description\": \"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).\",\r\n    \"meetings\": [\r\n        {\r\n            \"link\": \"https://meet.google.com/nit-xaoj-tma\",\r\n            \"instructions\": \"\",\r\n            \"duration\": {\r\n                \"value\": \"240\",\r\n                \"unit\": \"hour\"\r\n            },\r\n            \"platform\": \"Google Meet\",\r\n            \"date\": \"1722335353195\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/classes/register/:classID/:studentID",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"classes",
+								"register",
+								":classID",
+								":studentID"
+							],
+							"variable": [
+								{
+									"key": "classID",
+									"value": "66a8c4a4635bb7e8b85f0870"
+								},
+								{
+									"key": "studentID",
+									"value": "66a763b5cf5b0b6512b6340c"
+								}
+							]
+						},
+						"description": "Only users with role student can register for a class. ID of student will be mapped to the course and a ref also created in the students array.\n\nAll classes to be registered for must be existing classes."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Classes",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/classes/get",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"classes",
+								"get"
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "Coding,Bootcamp",
+									"disabled": true
+								},
+								{
+									"key": "id",
+									"value": "66a85b04dc468687775cfe8c",
+									"disabled": true
+								}
+							]
+						},
+						"description": "Can get a course by title: url?title=title (NOTE: split spaces in course name by comma) (Not case sensitive)\n\nCan get a user by course id auto generated by db: url?id=id\n\nNote: if no query or param added, server will return all users in the db"
+					},
+					"response": [
+						{
+							"name": "Get Classes",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}/classes/get?title=Coding,Bootcamp",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"classes",
+										"get"
+									],
+									"query": [
+										{
+											"key": "title",
+											"value": "Coding,Bootcamp"
+										},
+										{
+											"key": "id",
+											"value": "66a85b04dc468687775cfe8c",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Resource-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Origin-Agent-Cluster",
+									"value": "?1"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=15552000; includeSubDomains"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Credentials",
+									"value": "true"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "6014"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"177e-EbZ9hJ+GykVoo438+3OrwhXckfY\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 30 Jul 2024 12:06:10 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"Found classs by Name\",\n    \"data\": {\n        \"_id\": \"66a8c4a4635bb7e8b85f0870\",\n        \"students\": [\n            {\n                \"address\": {\n                    \"geoLocation\": {\n                        \"type\": \"point\",\n                        \"coordinates\": []\n                    },\n                    \"addressString\": \"5a Mapple Close, Abuja\"\n                },\n                \"_id\": \"66a763b5cf5b0b6512b6340c\",\n                \"first_name\": \"Kunle\",\n                \"last_name\": \"Deso\",\n                \"role\": \"student\",\n                \"email\": \"kxprex@gmail.com\",\n                \"student_number\": \"KD9165\",\n                \"mobile\": \"080752678198\"\n            }\n        ],\n        \"teachers\": [\n            {\n                \"address\": {\n                    \"geoLocation\": {\n                        \"type\": \"point\",\n                        \"coordinates\": []\n                    },\n                    \"addressString\": \"5a Mapple Close, Abuja\"\n                },\n                \"_id\": \"66a765b8fab49eaa361664b2\",\n                \"first_name\": \"Bolanle\",\n                \"last_name\": \"Olaike\",\n                \"role\": \"teacher\",\n                \"email\": \"bolanleolaike@endtest-mail.io\",\n                \"student_number\": \"BO6291\",\n                \"mobile\": \"080752678198\"\n            }\n        ],\n        \"meetings\": [\n            {\n                \"duration\": {\n                    \"value\": 240,\n                    \"unit\": \"hour\"\n                },\n                \"date\": \"2024-07-30T10:29:13.195Z\",\n                \"link\": \"https://meet.google.com/nit-xaoj-tma\",\n                \"instructions\": \"\",\n                \"platform\": \"Google Meet\",\n                \"_id\": \"66a8c4a4635bb7e8b85f0871\"\n            }\n        ],\n        \"createdAt\": \"2024-07-30T10:46:59.579Z\",\n        \"description\": \"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).\",\n        \"courses\": [\n            {\n                \"_id\": \"66a85b04dc468687775cfe8c\",\n                \"name\": \"Learn Phyton\",\n                \"category\": \"Technology\",\n                \"resources\": [\n                    {\n                        \"title\": \"Topic 1\",\n                        \"content\": \"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).\",\n                        \"external_links\": [\n                            \"https://www.lipsum.com/\"\n                        ],\n                        \"videos\": [\n                            \"https://youtu.be/kUMe1FH4CHE?si=XrSFM5B04HdwJZbj\"\n                        ],\n                        \"createdAt\": \"2024-07-30T03:16:20.446Z\",\n                        \"_id\": \"66a85b04dc468687775cfe8d\"\n                    }\n                ],\n                \"teachers\": [\n                    \"66a765b8fab49eaa361664b2\"\n                ],\n                \"students\": [\n                    \"66a882ccc3301ec3a8f926ab\"\n                ],\n                \"description\": \"Learn all you need to know about Phyton. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).\",\n                \"createdAt\": \"2024-07-30T03:16:20.446Z\",\n                \"banner\": \"\",\n                \"__v\": 0\n            },\n            {\n                \"_id\": \"66a865fb304df54053079970\",\n                \"name\": \"Learn Javascript\",\n                \"category\": \"Technology\",\n                \"resources\": [\n                    {\n                        \"title\": \"Javascript Introduction\",\n                        \"content\": \"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).\",\n                        \"external_links\": [\n                            \"https://www.lipsum.com/\"\n                        ],\n                        \"videos\": [\n                            \"https://youtu.be/FQdaUv95mR8?si=VWxt8UxLsNUZXKgr\"\n                        ],\n                        \"createdAt\": \"2024-07-30T04:03:07.897Z\",\n                        \"_id\": \"66a865fb304df54053079971\"\n                    },\n                    {\n                        \"title\": \"Arrays and Objexts\",\n                        \"content\": \"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).\",\n                        \"external_links\": [\n                            \"https://www.lipsum.com/\"\n                        ],\n                        \"videos\": [\n                            \"https://youtu.be/FQdaUv95mR8?si=VWxt8UxLsNUZXKgr\",\n                            \"https://youtu.be/kUMe1FH4CHE?si=XrSFM5B04HdwJZbj\"\n                        ],\n                        \"createdAt\": \"2024-07-30T04:03:07.897Z\",\n                        \"_id\": \"66a865fb304df54053079972\"\n                    }\n                ],\n                \"teachers\": [\n                    \"66a765b8fab49eaa361664b2\"\n                ],\n                \"students\": [\n                    \"66a763b5cf5b0b6512b6340c\",\n                    \"66a882bdc3301ec3a8f926a7\",\n                    \"66a882ccc3301ec3a8f926ab\"\n                ],\n                \"description\": \"Learn all you need to know about JS/TS. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).\",\n                \"createdAt\": \"2024-07-30T04:03:07.897Z\",\n                \"banner\": \"\",\n                \"__v\": 0\n            }\n        ],\n        \"title\": \"Coding Bootcamp\",\n        \"chats\": [],\n        \"__v\": 0\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Get Signed AWS URL for File/Image",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/file/aws/:folder/:file",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"file",
+						"aws",
+						":folder",
+						":file"
+					],
+					"variable": [
+						{
+							"key": "folder",
+							"value": "profile-pictures"
+						},
+						{
+							"key": "file",
+							"value": "user-66a7635acf5b0b6512b63408-Tolulope-Tolulope-profile-photo-1722275484852.jpeg"
+						}
+					]
+				},
+				"description": "Fetches images/files fro AWS s3 bucket for app services.\n\nThis endpoint requires two params, the folder name and the file name.\n\nExisting folders in our AWS Bucket include:  \n- products\n- profile-pictures\n\nNote: This returned url from AWS will expire after some time. Returned URL will work for any file format as needed or uploaded via other endpoints."
+			},
+			"response": [
+				{
+					"name": "Get Signed AWS URL",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							},
+							{
+								"key": "hospital",
+								"value": "{{hospital}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/file/aws/:folder/:file",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"file",
+								"aws",
+								":folder",
+								":file"
+							],
+							"variable": [
+								{
+									"key": "folder",
+									"value": "products"
+								},
+								{
+									"key": "file",
+									"value": "1-product-Paracetamol-1721141669374.jpeg"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Resource-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Origin-Agent-Cluster",
+							"value": "?1"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "no-referrer"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15552000; includeSubDomains"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-DNS-Prefetch-Control",
+							"value": "off"
+						},
+						{
+							"key": "X-Download-Options",
+							"value": "noopen"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN"
+						},
+						{
+							"key": "X-Permitted-Cross-Domain-Policies",
+							"value": "none"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "0"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "452"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1c4-gJp1nW5QMJprxp0BFWtgF4kaEQQ\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 16 Jul 2024 14:56:05 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"Request File Found\",\n    \"data\": \"https://hms-mg.s3.us-east-1.amazonaws.com/products/1-product-Paracetamol-1721141669374.jpeg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAXYKJV5M4OVI77ZO7%2F20240716%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20240716T145605Z&X-Amz-Expires=9000&X-Amz-Signature=42c7fbee63fbafbc9cf1d5d957ac6c85223762288ce75e007065c1f17c620208&X-Amz-SignedHeaders=host&x-id=GetObject\"\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "http://localhost:5500/abbey/1680/api/abbey/v1",
+			"type": "string"
+		},
+		{
+			"key": "passKey",
+			"value": "pass-66966c874edc2a5271f1737f",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRvdHhwcmV4QGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsInN0dWRlbnRfbnVtYmVyIjoiVE01MjQyIiwiaWF0IjoxNzM5NjUyNTEwLCJleHAiOjE3NDc0Mjg1MTB9.quUZfx7N55Wwmm1ppx-vCbEf4-xRbnF-Km3Py--ws6s",
+			"type": "string"
+		},
+		{
+			"key": "url",
+			"value": "",
+			"type": "string",
+			"disabled": true
+		}
+	]
+}

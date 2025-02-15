@@ -9,7 +9,7 @@ I have also attached a separate Google Drive folder with some of the app's snaps
 
 The GitHub repository link for cloning is: `https://github.com/totxprex/Abbey-Challenge.git`
 
-The API Documentation I wrote for the backend can be found at `https://documenter.getpostman.com/view/21822607/2sA3kbgJ48#6a28b953-c0b7-4047-aede-4bacc37d27a3`
+The API Documentation I wrote for the backend can be found at `https://documenter.getpostman.com/view/21822607/2sAYXEEdi1`
 
 # How to run the application
 
@@ -60,6 +60,6 @@ User roles in the application include: "student" | "admin" | "teacher" | "other"
 
 Although the frontend cannot directly create Classes or Courses, they can be created by interacting directly with the server throught base url: http://localhost:5500/abbey/1680/api/abbey/v1
 
-I have added also the Postman collection (JSON) that can be imported into postman in the Google Drive folder. It will have all the endpoints needed.
+I have added also the Postman collection (JSON) that can be imported into postman in the Google Drive folder and in the repo root directory. It will have all the endpoints needed.
 
 If there are any questions, don't hesitate to let me know.
