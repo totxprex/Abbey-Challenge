@@ -17,7 +17,7 @@ function App() {
 
   const engineRef = useRef<any>(null);
 
-  const backendServer = `http://localhost:5500/etap/1680/api/elearn/v1`;
+  const backendServer = `http://localhost:5500/abbey/1680/api/abbey/v1`;
 
   const getSignedAwsUrl = async function (filename: string, bucketname: string) {
     if (!filename) return;
@@ -30,7 +30,7 @@ function App() {
         method: "GET",
         credentials: "include",
         headers: {
-          token: localStorage.getItem("etaptoken") || "",
+          token: localStorage.getItem("abbeytoken") || "",
         },
       })
     ).json();
@@ -59,10 +59,10 @@ function App() {
   const updateUsersData = async function () {
     try {
       const data = await (
-        await fetch(`${backendServer}/users/get?email=${localStorage.getItem("etapemail")}`, {
+        await fetch(`${backendServer}/users/get?email=${localStorage.getItem("abbeyemail")}`, {
           credentials: "include",
           headers: {
-            token: localStorage.getItem("etaptoken") || "",
+            token: localStorage.getItem("abbeytoken") || "",
           },
         })
       ).json();
@@ -88,8 +88,8 @@ function App() {
     return document?.location?.hash?.toLowerCase()?.replace("#", "")?.trim();
   }
 
-  const getEtapToken = () => {
-    const token = localStorage.getItem("etaptoken");
+  const getAbbeyToken = () => {
+    const token = localStorage.getItem("abbeytoken");
     if (token) return token;
     return "";
   };
@@ -111,7 +111,7 @@ function App() {
         patternMatching,
         validateMobile,
         getCurrentHash,
-        getEtapToken,
+        getAbbeyToken,
         storedContext,
         setStoredContext,
       }}

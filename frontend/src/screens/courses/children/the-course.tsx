@@ -39,7 +39,7 @@ const StudyPageCourseDetails = function ({ display, setScreen, screen }: Prop) {
           method: "GET",
           credentials: "include",
           headers: {
-            token: localStorage.getItem("etaptoken") || "",
+            token: localStorage.getItem("abbeytoken") || "",
           },
         })
       ).json();
@@ -122,7 +122,7 @@ const StudyPageCourseDetails = function ({ display, setScreen, screen }: Prop) {
           method: "PUT",
           credentials: "include",
           headers: {
-            token: localStorage.getItem("etaptoken") || "",
+            token: localStorage.getItem("abbeytoken") || "",
             "content-type": "application/json",
           },
           body: JSON.stringify({

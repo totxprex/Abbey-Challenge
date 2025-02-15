@@ -33,7 +33,7 @@ const SideNav = function ({ setSideNav, loggedIn }: Prop) {
     <div className="side-nav-container">
       <div className="inner-conatiner">
         <div className="side-nav-intro flex-row">
-          <img src="/logo.png" alt="Etap-Logo" className="etap-logo-side-nav" />
+          <img src="/logo.png" alt="Abbey-Logo" className="abbey-logo-side-nav" />
         </div>
         <div className="nav-items-container">
           <button
@@ -93,9 +93,9 @@ const SideNav = function ({ setSideNav, loggedIn }: Prop) {
           <button
             onClick={() => {
               setIsLoading(true);
-              localStorage.removeItem("etapusername");
-              localStorage.removeItem("etapemail");
-              localStorage.removeItem("etaptoken");
+              localStorage.removeItem("abbeyusername");
+              localStorage.removeItem("abbeyemail");
+              localStorage.removeItem("abbeytoken");
               setTimeout(() => {
                 document.location.reload();
               }, 1500);

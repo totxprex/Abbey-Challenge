@@ -33,7 +33,7 @@ const CoursesHome = function ({ display, setScreen }: Prop) {
           method: "GET",
           credentials: "include",
           headers: {
-            token: localStorage.getItem("etaptoken") || "",
+            token: localStorage.getItem("abbeytoken") || "",
           },
         })
       ).json();
@@ -66,7 +66,7 @@ const CoursesHome = function ({ display, setScreen }: Prop) {
       setIsLoading(false);
     } catch (err: any) {
       setIsLoading(false);
-      popup("Error fetching Etap Data");
+      popup("Error fetching abbey Data");
     }
   }
 
@@ -90,7 +90,7 @@ const CoursesHome = function ({ display, setScreen }: Prop) {
           </button>
         </div>
 
-        <img className="intro-image" src="/images/dev.png" alt="etap"></img>
+        <img className="intro-image" src="/images/dev.png" alt="abbey"></img>
       </div>
 
       <div className="flex-row explore-courses-cont">{allCoursesComp}</div>

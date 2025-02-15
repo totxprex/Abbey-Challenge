@@ -38,14 +38,14 @@ const Login = function () {
 
       if (returned.status === "Internal server error") throw new Error(returned.message);
 
-      localStorage.setItem("etapemail", returned.data.email);
-      localStorage.setItem("etaptoken", returned.data.token);
+      localStorage.setItem("abbeyemail", returned.data.email);
+      localStorage.setItem("abbeytoken", returned.data.token);
 
       const data = await (
         await fetch(`${backendServer}/users/get?email=${returned.data.email}`, {
           credentials: "include",
           headers: {
-            token: localStorage.getItem("etaptoken") || "",
+            token: localStorage.getItem("abbeytoken") || "",
           },
         })
       ).json();
@@ -69,10 +69,10 @@ const Login = function () {
     setIsLoading(true);
     try {
       const data = await (
-        await fetch(`${backendServer}/users/get?email=${localStorage.getItem("etapemail")}`, {
+        await fetch(`${backendServer}/users/get?email=${localStorage.getItem("abbeyemail")}`, {
           credentials: "include",
           headers: {
-            token: localStorage.getItem("etaptoken") || "",
+            token: localStorage.getItem("abbeytoken") || "",
           },
         })
       ).json();
@@ -85,13 +85,13 @@ const Login = function () {
       popup("Login Failed. Please login again...");
       setIsLoading(false);
       setLoggedIn(false);
-      localStorage.removeItem("etapemail");
-      localStorage.removeItem("etaptoken");
+      localStorage.removeItem("abbeyemail");
+      localStorage.removeItem("abbeytoken");
     }
   }
 
   useEffect(() => {
-    if (localStorage.getItem("etapemail") && localStorage.getItem("etaptoken")) runAutoLogin();
+    if (localStorage.getItem("abbeyemail") && localStorage.getItem("abbeytoken")) runAutoLogin();
     else {
       setLoggedIn(false);
       document.location.hash = "auth";
@@ -105,17 +105,17 @@ const Login = function () {
       <div className="login-container">
         <div className="login-container-one">
           <div className="wavy-container">
-            <img className="wavy-img" src="/wavy.png" alt="Etap" />
+            <img className="wavy-img" src="/wavy.png" alt="Abbey" />
             <div className="wavy-content">
               <div className="flex-row align-row-left" style={{ gap: 20, width: "50%" }}>
-                <img className="wavy-logo" src="/logo.png" alt="Etap" />
+                <img className="wavy-logo" src="/logo.png" alt="Abbey" />
                 <p className="big whiteText removemargin" style={{ fontSize: "25px" }}></p>
               </div>
             </div>
           </div>
 
           <div className="login-cont">
-            <p className="vbig boldText removemargin">Etap Learning System</p>
+            <p className="vbig boldText removemargin">Abbey Learning System</p>
             <span className="small removemargin">
               Elevate Learning with Our Learning Management System
             </span>
@@ -148,7 +148,7 @@ const Login = function () {
           </div>
         </div>
         <div className="login-container-two">
-          <img className="login-banner-img" src="/images/v-1.png" alt="Etap" />
+          <img className="login-banner-img" src="/images/v-1.png" alt="Abbey" />
         </div>
 
         <AddAUserModal display={signupModal} setSignUpUserModal={setSignupModal} />

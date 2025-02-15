@@ -14,7 +14,7 @@
   height: 100vh;
 }
 
-.etap-logo-side-nav {
+.abbey-logo-side-nav {
   width: 70px;
 }
 
@@ -63,7 +63,7 @@
 }
 
 @media screen and (max-width: 500px) {
-  .etap-logo-side-nav {
+  .abbey-logo-side-nav {
     width: 20px;
   }
 

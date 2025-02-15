@@ -30,7 +30,7 @@ const AnalyticsHome = function ({ display, setScreen }: Prop) {
           method: "GET",
           credentials: "include",
           headers: {
-            token: localStorage.getItem("etaptoken") || "",
+            token: localStorage.getItem("abbeytoken") || "",
           },
         })
       ).json();
@@ -63,7 +63,7 @@ const AnalyticsHome = function ({ display, setScreen }: Prop) {
       setIsLoading(false);
     } catch (err: any) {
       setIsLoading(false);
-      popup("Error fetching Etap Data");
+      popup("Error fetching Data");
     }
   }
 

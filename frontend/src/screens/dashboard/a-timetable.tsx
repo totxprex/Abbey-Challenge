@@ -26,7 +26,7 @@ export const ATimeTable = ({ data }: { data: IMeetings }) => {
       </div>
 
       <div className="flex-column a-time-table-cont-right">
-        <img src={"/notification.png"} alt="etap teacher" className="top-bar-profile-pic" />
+        <img src={"/notification.png"} alt="abbey teacher" className="top-bar-profile-pic" />
         <button onClick={() => window.open(data?.link, "_blank")} className="themeBtn">
           Meeting Link
         </button>

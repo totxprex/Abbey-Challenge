@@ -26,7 +26,7 @@ const CoursesDetails = function ({ display, setScreen, screen }: Prop) {
           method: "PATCH",
           credentials: "include",
           headers: {
-            token: localStorage.getItem("etaptoken") || "",
+            token: localStorage.getItem("abbeytoken") || "",
           },
         })
       ).json();

@@ -51,7 +51,7 @@ app.use(hashPassword());
 
 app.param("key", verifyKey());
 
-app.use("/etap/:key", MainController);
+app.use("/abbey/:key", MainController);
 
 //fallback!
 app.use((_req: Request, res: Response, _next: NextFunction) => {

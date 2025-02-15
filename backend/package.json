@@ -1,7 +1,7 @@
 {
-  "name": "e-tap-learning",
+  "name": "abbey-challenge-backend",
   "version": "1.0.0",
-  "description": "ETap Node Backend",
+  "description": "Abbey FullStack Engineer Challenge",
   "main": "server.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,7 +9,7 @@
     "dev": "nodemon server.ts"
   },
   "keywords": [
-    "etap",
+    "abbey",
     "learning"
   ],
   "engines": {

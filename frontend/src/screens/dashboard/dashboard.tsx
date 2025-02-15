@@ -74,7 +74,7 @@ const Dashboard = function ({ display }: { display?: boolean }) {
               </p>
             </div>
 
-            <img className="intro-image" src="/images/office.png" alt="etap"></img>
+            <img className="intro-image" src="/images/office.png" alt="abbey"></img>
           </div>
 
           <div className="flex-row">

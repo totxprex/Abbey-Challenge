@@ -8,7 +8,7 @@ function EngineBottomBar() {
       <p className="xsmall removemargin">
         Powered by{"  "}
         <span>
-          <img alt="etap" src="/logo.png" className="bottom-bar-img" />
+          <img alt="abbey" src="/logo.png" className="bottom-bar-img" />
         </span>
       </p>
     </div>

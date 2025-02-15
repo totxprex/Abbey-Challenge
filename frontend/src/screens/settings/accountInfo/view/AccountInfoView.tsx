@@ -33,7 +33,7 @@ const AccountInfoView = ({ onNavigate }: Props) => {
           body: formData,
           headers: {
             enctype: "multipart/form-data",
-            token: localStorage.getItem("etaptoken") || "",
+            token: localStorage.getItem("abbeytoken") || "",
           },
         })
       ).json();
@@ -52,7 +52,7 @@ const AccountInfoView = ({ onNavigate }: Props) => {
         <div className="se-info-first-child-logo">
           <img
             src={newLogo || userImage || "/user_placeholder.png"}
-            alt="etap admin"
+            alt="abbey admin"
             className=""
           />
         </div>

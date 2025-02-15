@@ -5,7 +5,9 @@ type Props = {
 const AboutView = ({ onNavigate }: Props) => {
   return (
     <div className="se-info-container">
-      <p className="small">Copyright © 2024, ETAP Learning Assesment</p>
+      <p className="small">
+        Copyright © 2025, Abbey Learning Assesment for Abbey FullStack Engineer Challenge
+      </p>
       <p className="small">
         Submission by{" "}
         <a

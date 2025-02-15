@@ -25,7 +25,7 @@ function EngineTopBar() {
       <div className="flex-row" style={{ width: "fit-content", gap: 15 }}>
         <img
           src={userImage || "/user_placeholder.png"}
-          alt="etap admin"
+          alt="abbey admin"
           className="top-bar-profile-pic"
         />
         <div className="flex-column align-column-left" style={{ width: "fit-content" }}>

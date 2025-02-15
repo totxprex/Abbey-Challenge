@@ -98,7 +98,7 @@ export interface IMainContext {
   patternMatching: (wordone: string, wordtwo: string) => boolean;
   validateMobile: (mobile: string) => any;
   getCurrentHash: () => string
-  getEtapToken: () => string;
+  getAbbeyToken: () => string;
   setStoredContext: React.Dispatch<React.SetStateAction<any>>
   storedContext: any
 }

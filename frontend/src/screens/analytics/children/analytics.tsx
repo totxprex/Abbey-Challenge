@@ -42,7 +42,7 @@ const AnalyticsAnalytics = function ({ display, setScreen, screen }: Prop) {
           method: "GET",
           credentials: "include",
           headers: {
-            token: localStorage.getItem("etaptoken") || "",
+            token: localStorage.getItem("abbeytoken") || "",
           },
         })
       ).json();
@@ -56,7 +56,7 @@ const AnalyticsAnalytics = function ({ display, setScreen, screen }: Prop) {
       workCSV(returned?.data);
     } catch (err: any) {
       setIsLoading(false);
-      popup("Error fetching Etap Data");
+      popup("Error fetching Data");
     }
   }
 
@@ -80,7 +80,7 @@ const AnalyticsAnalytics = function ({ display, setScreen, screen }: Prop) {
 
   return (
     <div className="screen-container">
-      <div className="etap-stat-container">
+      <div className="abbey-stat-container">
         <div className="flex-row space-between no-padding" style={{ margin: 20 }}>
           <p
             onClick={() =>
